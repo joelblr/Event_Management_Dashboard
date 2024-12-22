@@ -14,11 +14,10 @@ class Event(db.Model):
 
 # Attendee Model (no reference to Event anymore)
 class Attendee(db.Model):
-    attendee_id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), nullable=False, unique=True)
     # Relationship with Task model
-    tasks = db.relationship('Task', backref=db.backref('assigned_attendee', lazy=True))
+    tasks = db.relationship('Task', backref='attendee', lazy=True)
 
 # Task Model (foreign keys to Attendee and Event)
 class Task(db.Model):
@@ -27,4 +26,4 @@ class Task(db.Model):
     deadline = db.Column(db.Date, nullable=False)
     status = db.Column(db.String(50), default='Pending')
     event_id = db.Column(db.Integer, db.ForeignKey('event.event_id'), nullable=False)
-    assigned_attendee_id = db.Column(db.Integer, db.ForeignKey('attendee.attendee_id'), nullable=True)
+    assigned_attendee_email = db.Column(db.Integer, db.ForeignKey('attendee.email'), nullable=True)

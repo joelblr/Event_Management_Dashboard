@@ -12,6 +12,7 @@ st.session_state["views_dr"] = os.path.join(os.path.dirname(__file__), "views")
 st.session_state["styles_dr"] = os.path.join(os.path.dirname(__file__), "styles")
 st.session_state["images_dr"] = os.path.join(os.path.dirname(__file__), "images")
 st.session_state["scripts_dr"] = os.path.join(os.path.dirname(__file__), "scripts")
+st.session_state["cache_dr"] = os.path.join(os.path.dirname(__file__), "cache")
 
 st.session_state["get-DT"] = lambda: datetime.now().strftime("%d-%m-%Y -> %H:%M:%S")
 
@@ -27,7 +28,7 @@ st.html(f"<style>{css_styles}</style>")
 
 if "usr_email" not in st.session_state:
     st.session_state["usr_email"] = None
-    st.session_state["usr_email"] = "joelblr@gmail.com"
+    # st.session_state["usr_email"] = "joelblr@gmail.com"
 
 if "page_dict" not in st.session_state:
     st.session_state["page_dict"] = {}
@@ -35,19 +36,18 @@ if "page_dict" not in st.session_state:
 
 def logout():
     usr_email = st.session_state["usr_email"]
+    st.toast(f"Account: {usr_email} Logged-OUT successfully 🎉", icon="✔️")
     st.session_state["usr_email"] = None
     st.session_state["page_dict"] = {}
-    st.toast(f"Account: {usr_email} Logged-OUT successfully 🎉", icon="✔️")
     print(f"INFO: @{st.session_state["get-DT"]()} | Account: {usr_email} Logged-OUT successfully!")
     st.rerun()
 
 
-# # Login-SignUp
-# login_signup_page = st.Page(
-#     page="run_client.py", title="Home", icon="🔐", # url_path="/auth",
-#     # page="../views/auth/Auth.py", title="Home", icon="🔐", # url_path="/auth",
-#     # default=True,
-# )
+# Login-SignUp
+login_signup_page = st.Page(
+    page="./views/auth/Auth.py", title="Auth", icon="🔐", # url_path="/auth",
+    # default=True,
+)
 
 # Account
 logout_page = st.Page(logout, title="Log out", icon=":material/logout:")

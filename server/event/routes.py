@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from app.models import db, Event
+from server.models import db, Event
 from . import event_blueprint
 from datetime import datetime
 from sqlalchemy.exc import SQLAlchemyError

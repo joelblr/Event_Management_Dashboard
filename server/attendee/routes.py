@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from app.models import db, Attendee, Task
+from server.models import db, Attendee, Task
 from . import attendee_blueprint
 from sqlalchemy.exc import SQLAlchemyError
 

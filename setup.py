@@ -1,12 +1,12 @@
-from app import create_app
-from app.models import db
+from server import create_server
+from server.models import db
 
-# Create app instance
-app = create_app()
+# Create server instance
+server = create_server()
 
 try:
-    # Push the app context
-    with app.app_context():
+    # Push the server context
+    with server.server_context():
         # Create all tables
         db.create_all()
 

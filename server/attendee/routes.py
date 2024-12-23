@@ -50,8 +50,10 @@ def get_all_attendees():
         if not attendees:
             return jsonify({"error": "No attendees found. Add Attendees to view them."}), 404
         
-        attendee_list = [{"name": attendee.name, "email": attendee.email} for attendee in attendees]
-        return jsonify({"attendees": attendee_list}), 200
+        attendee_list = {
+            attendee.email: {"name": attendee.name, "email": attendee.email} for attendee in attendees
+        }
+        return jsonify({"response": attendee_list}), 200
     
     except Exception as e:
         return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500

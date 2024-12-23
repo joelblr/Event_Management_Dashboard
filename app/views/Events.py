@@ -27,6 +27,10 @@ for css_file in css_files:
     css_styles += f"{css}\n"
 st.html(f"<style>{css_styles} </style>")
 
+table_style = ""
+with open(os.path.join(st.session_state["styles_dr"], "table.css")) as f:
+    table_style = "<style>" + f.read() + "</style>"
+
 
 def get_uid(prefix=""):
     return prefix + "_" + str(uuid.uuid4())
@@ -73,8 +77,8 @@ def fetch_events():
             if response.status_code == 200:
                 data = response.json()
                 st.session_state["events"] = data.get("response")
-                st.toast("Successfully Fetched Events from DB. ", icon="🎉")
-                st.snow()
+                # st.toast("Successfully Fetched Events from DB. ", icon="🎉")
+                # st.snow()
                 # st.rerun()
             else:
                 # Fetch error message from response.json() or response.text
@@ -103,35 +107,6 @@ def initialize_session_state(forced=False):
     #     fetch_events()
 
 
-table_style = """
-<style>
-    .custom-table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 10px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-    }
-    .custom-table th {
-        background-color: #4CAF50;
-        color: white;
-        text-align: left;
-        padding: 10px;
-        border: 1px solid #ddd;
-    }
-    .custom-table td {
-        text-align: left;
-        padding: 10px;
-        border: 1px solid #ddd;
-    }
-    .custom-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
-    .custom-table tr:hover {
-        background-color: #f1f1f1;
-    }
-</style>
-"""
 
 def update_to_events(eid, ename, edesc, eloc, edate):
     with st.spinner(f"Updating your Event to Database... Plz wait"):
@@ -152,6 +127,7 @@ def update_to_events(eid, ename, edesc, eloc, edate):
 
             if response.status_code in [200, 201]:
                 st.toast(data.get("message"), icon="🎉")
+                st.snow()
                 st.rerun()
                 # fetch_events()
             else:
@@ -176,7 +152,7 @@ def remove_from_events(eid):
                 st.toast(data.get("message"), icon="🎉")
                 del st.session_state["events"][eid]
                 st.session_state["to_del"].append(eid)
-                # st.snow()
+                st.snow()
                 st.rerun()
                 # fetch_events()
             else:
@@ -209,7 +185,7 @@ def add_to_events(eid, ename, edesc, eloc, edate):
 
             if response.status_code in [200, 201]:
                 st.toast(data.get("message"), icon="🎉")
-                # st.snow()
+                st.snow()
                 st.rerun()
                 # fetch_events()
             else:
@@ -272,14 +248,14 @@ def create_event_component():
         with cols[2]:
             with st.popover(label="", icon="🗑️"):
                 with st.form(key=f"del-{key}", clear_on_submit=True, enter_to_submit=True):
-                    st.markdown(f"#### Warning ⚠️ You will lose this Event Forever.\n##### Type `sudo {key}` to confirm")
+                    st.markdown(f"#### Warning ⚠️ You will lose this Event Forever.\n##### Type `sudo rm -rf {key}` to confirm")
                     eid_txt = st.text_input("", max_chars=100)
                     confirm = st.form_submit_button(label="Confirm", help="Click to Create Event",
                     on_click=None, args=None, kwargs=None,
                     type="secondary", icon=None, disabled=False, use_container_width=False)
 
                     if confirm:
-                        if eid_txt == f"sudo {key}":
+                        if eid_txt == f"sudo rm -rf {key}":
                             remove_from_events(key)
                         else:
                             st.toast(f"Wrong command to Delete Events", icon="⛔")
@@ -328,5 +304,6 @@ def show_create_btn():
 
 
 initialize_session_state()
+fetch_events()
 show_create_btn()
 create_event_component()

@@ -1,0 +1,81 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa;
+}
+.main {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Option Menu Styles */
+.nav-item a {
+    font-size: 16px;
+    color: #333 !important;
+}
+.nav-item a.active {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 5px;
+}
+
+/* Custom Submit Button Styles */
+[data-testid="stBaseButton-secondaryFormSubmit"] {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+[data-testid="stBaseButton-secondaryFormSubmit"]:hover {
+    color: white;
+    background-color: #0056b3;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+[data-testid="stBaseButton-secondaryFormSubmit"]:active {
+    color: white;
+    transform: scale(0.98);
+}
+[data-testid="stBaseButton-secondaryFormSubmit"].loading {
+    background-color: #007bff;
+    cursor: wait;
+    color: #a0a0a0;
+}
+
+[data-testid="stBaseButton-secondaryFormSubmit"]:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+    color: #a0a0a0;
+}
+
+[data-testid="stBaseButton-secondaryFormSubmit"]:focus:not(:active) {
+    color: cyan;
+    outline: 2px solid #0056b3; /* Focus border color */
+    outline-offset: 2px;
+    box-shadow: 0px 0px 8px rgba(0, 91, 255, 0.6); /* Glow effect */
+}
+
+/* [data-testid="stBaseButton-secondaryFormSubmit"]:disabled {
+    background-color: #d6d6d6;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+[data-testid="stBaseButton-secondaryFormSubmit"].success {
+    background-color: #28a745;
+    color: white;
+}
+[data-testid="stBaseButton-secondaryFormSubmit"].error {
+    background-color: #dc3545;
+    color: white;
+} */
+
+
+i, .icon {
+    font-size: 100px;
+    margin-right: 8px;
+}

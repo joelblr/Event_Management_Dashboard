@@ -1,0 +1,23 @@
+[data-testid="stSidebarNav"] {
+    background-repeat: no-repeat;
+    background-color: #f8f9fa; /* Light gray background for professional look */
+    border-radius: 8px;       /* Rounded corners */
+    padding: 10px;            /* Add padding */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+[data-testid="stSidebarNav"]::before {
+    content: "Welcome";
+    font-size: 20px;         /* Slightly smaller professional font size */
+    color: #007bff;          /* Professional blue color */
+    font-weight: bold;       /* Bold font for emphasis */
+    /* font-style: italic; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0px 20px;       /* Adjust margin for spacing */
+    text-align: center;
+    height: 40px;            /* Adjust height for alignment */
+    line-height: 20px;       /* Match line height to height */
+    border-bottom: 2px solid #dee2e6; /* Subtle bottom border */
+}

@@ -1,0 +1,48 @@
+.stElementContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 22px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* .btn {
+    background-color: #FF8C00;
+    color: white;
+    font-weight: bold;
+    width: auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+} */
+/* .input-field {
+    background-color: #444444;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    width: 100%;
+} */
+/* .input-container {
+    margin-bottom: 20px;
+} */
+/* .copy-btn {
+    background-color: #0066cc;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+} */

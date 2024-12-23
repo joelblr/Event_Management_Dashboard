@@ -1,0 +1,41 @@
+/* Default button style */
+.stButton > button {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #4CAF50; /* Default background */
+    color: white; /* Default text color */
+    border: none; /* No border by default */
+    transition: all 0.3s ease; /* Smooth transition for changes */
+}
+
+/* Hover state: when mouse pointer is over the button */
+.stButton > button:hover {
+    background-color: #45a049; /* Darker background on hover */
+    color: #13edcc; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+/* Active state: when the button is pressed (clicked) */
+.stButton > button:active {
+    background-color: #3e8e41; /* Darker background when clicked */
+    color: #13edcc; /* Change text color when clicked */
+    transform: scale(1); /* Return to original size */
+}
+
+/* Focus state: when the button is focused (e.g., clicked or tabbed) */
+.stButton > button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.5); /* Focus ring */
+}
+
+/* Normal state (after release) */
+.stButton > button:focus:not(:active) {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #4CAF50; /* Default background */
+    color: white; /* Default text color */
+    border: none; /* No border by default */
+    transition: all 0.3s ease; /* Smooth transition for changes */
+}

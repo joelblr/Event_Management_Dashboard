@@ -1,0 +1,26 @@
+.stLogo {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%; /* Makes it a circle if the logo is square */
+    border: 2px solid #007BFF; /* Optional: Add a border */
+    padding: 3px;
+    /* Optional: Add spacing between the logo and the border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for a fancy effect */
+
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    /* margin: 10px 70px 10px 10px; */
+    /* margin: 0px 0px 20px; */
+    text-align: center;
+}
+
+/* [data-testid="stSidebarHeader"] {
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    margin: 0;
+    text-align: center;
+    
+} */

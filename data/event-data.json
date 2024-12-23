@@ -2,21 +2,21 @@
     {
         "date": "2024-12-30",
         "description": "A gathering of tech enthusiasts and professionals.",
-        "event_id": 1,
+        "event_id": "eid_697d7b4e-257e-45de-ab32-1d324fad6578",
         "location": "Tech Park, Building 5",
         "name": "Annual Tech Meetup"
     },
     {
         "date": "2024-12-31",
         "description": "A gathering of all members.",
-        "event_id": 2,
+        "event_id": "eid_592839bc-25b2-4a95-affa-e29615dfb633",
         "location": "City Hall",
         "name": "Updated Event"
     },
     {
         "date": "2024-06-15",
         "description": "An intensive workshop on full-stack development.",
-        "event_id": 3,
+        "event_id": "eid_d51c3892-92d8-488e-be96-95ab553a5aac",
         "location": "Online",
         "name": "Summer Coding Bootcamp"
     }

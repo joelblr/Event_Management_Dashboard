@@ -9,7 +9,7 @@ class Account(db.Model):
 
 # Event Model
 class Event(db.Model):
-    event_id = db.Column(db.Integer, primary_key=True, unique=True)
+    event_id = db.Column(db.String(100), primary_key=True, unique=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
     location = db.Column(db.String(100), nullable=False)
@@ -26,7 +26,7 @@ class Attendee(db.Model):
 
 # Task Model (foreign keys to Attendee and Event)
 class Task(db.Model):
-    task_id = db.Column(db.Integer, primary_key=True)
+    task_id = db.Column(db.String(100), primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     deadline = db.Column(db.Date, nullable=False)
     status = db.Column(db.String(50), default='Pending')

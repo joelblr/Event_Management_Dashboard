@@ -18,7 +18,7 @@ st.session_state["get-DT"] = lambda: datetime.now().strftime("%d-%m-%Y -> %H:%M:
 
 # Embed the Styles
 css_styles = ""
-css_files =  ["auth.css", "login.css", "side-nav-bar.css", "button.css", "logo.css", "material-icon.css"]#, "hide-header.css"]
+css_files =  ["auth.css", "login.css", "side-nav-bar.css", "logo.css", "material-icon.css"]#, "hide-header.css"]
 for css_file in css_files:
     with open(os.path.join(st.session_state["styles_dr"], css_file)) as f:
         css = f.read()

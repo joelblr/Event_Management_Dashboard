@@ -8,14 +8,22 @@ from sqlalchemy.exc import SQLAlchemyError
 @event_blueprint.route('/', methods=['GET'])
 def get_events():
     events = Event.query.all()
-    result = [{
-        'event_id': event.event_id,
-        'name': event.name,
-        'description': event.description,
-        'location': event.location,
-        'date': event.date.strftime('%Y-%m-%d')
-    } for event in events]
-    return jsonify(result), 200
+    result = {
+        event.event_id: {
+            'name': event.name,
+            'description': event.description,
+            'location': event.location,
+            'date': event.date.strftime('%Y-%m-%d')
+        } for event in events
+    }
+    # result = [{
+    #     'event_id': event.event_id,
+    #     'name': event.name,
+    #     'description': event.description,
+    #     'location': event.location,
+    #     'date': event.date.strftime('%Y-%m-%d')
+    # } for event in events]
+    return jsonify({"response": result}), 200
 
 
 @event_blueprint.route('/', methods=['POST'])
@@ -51,8 +59,8 @@ def create_event():
         }), 400
 
     # Check if event_id is a valid integer
-    if not isinstance(data['event_id'], int):
-        return jsonify({"error": "'event_id' should be an integer."}), 400
+    if not isinstance(data['event_id'], str) or not data['event_id'].startswith("eid_"):
+        return jsonify({"error": "'event_id' should be an str, starts with eid_."}), 400
 
     # Check if data types are correct for other fields
     if not isinstance(data['name'], str) or not isinstance(data['description'], str) or not isinstance(data['location'], str):
@@ -93,7 +101,7 @@ def create_event():
 
 
 # Update Event Endpoint
-@event_blueprint.route('/<int:event_id>', methods=['PUT'])
+@event_blueprint.route('/<string:event_id>', methods=['PUT'])
 def update_event(event_id):
 
     try:
@@ -155,7 +163,7 @@ def update_event(event_id):
 
 
 # Delete Event Endpoint
-@event_blueprint.route('/<int:event_id>', methods=['DELETE'])
+@event_blueprint.route('/<string:event_id>', methods=['DELETE'])
 def delete_event(event_id):
     try:
         # Fetch event by ID or raise 404 if not found

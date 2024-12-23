@@ -1,0 +1,45 @@
+/* Custom style for the Streamlit expander (details tag) */
+details {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    color: grey;
+    transition: background-color 0.3s ease;
+}
+
+/* Style the summary element (the clickable part) */
+details summary {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the summary */
+details summary:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+
+/* Add some animation for opening and closing */
+details[open] {
+    background-color: #e0ffe0;
+}
+
+details[open] summary {
+    background-color: #66bb6a;
+}
+
+details[open] summary:hover {
+    background-color: #5baf59;
+    color: white;
+}

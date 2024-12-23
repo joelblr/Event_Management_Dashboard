@@ -77,7 +77,7 @@ if "logo" not in st.session_state:
 
 st.logo(
     image=os.path.join(st.session_state["logo"]),
-    link="https://github.com/joelblr/Event_Management_Dashboard",
+    link="https://github.com/Kavacin",
 )
 
 

@@ -6,11 +6,12 @@ server = create_server()
 
 try:
     # Push the server context
-    with server.server_context():
+    with server.app_context():
         # Create all tables
         db.create_all()
+    print("All databases and tables created successfully!")
 
-    print("Successfully Created DB")
+    print("Successfully ensured tables for accounts DB")
 
 except Exception as e:
     print(f"Setup Error:\n{e}")

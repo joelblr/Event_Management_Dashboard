@@ -2,6 +2,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+class Account(db.Model):
+    # __bind_key__ = 'accounts'
+    email = db.Column(db.String(100), primary_key=True, unique=True, nullable=False)
+    password = db.Column(db.String(255), nullable=False)
+
 # Event Model
 class Event(db.Model):
     event_id = db.Column(db.Integer, primary_key=True, unique=True)
